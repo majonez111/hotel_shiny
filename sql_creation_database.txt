@@ -1,0 +1,42 @@
+CREATE TABLE "Client" (
+	"Name"	TEXT,
+	"Email"	TEXT,
+	"Phone"	INTEGER,
+	"clientID"	INTEGER PRIMARY KEY AUTOINCREMENT
+);
+
+CREATE TABLE "Reservation" (
+	"reservationID"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"clientID"	INTEGER,
+	"dateOfReservation"	DATE,
+	"checkIN"	DATE,
+	"checkOUT"	DATE,
+	"reservationCancelled"	BIT,
+	"noOfPeople"	INTEGER,
+	"PIN"	INTEGER,
+	"priceTotal"	INTEGER,
+	FOREIGN KEY("reservationID") REFERENCES "Client"("clientID") ON DELETE CASCADE
+);
+
+CREATE TABLE "ReservationRooms" (
+	"reservationID"	INTEGER,
+	"id"	INTEGER,
+	"roomID"	INTEGER,
+	"priceID"	NUMERIC,
+	FOREIGN KEY("reservationID") REFERENCES "Reservation"("reservationID") ON DELETE CASCADE,
+	FOREIGN KEY("roomID") REFERENCES "Room"("roomID")
+);
+
+CREATE TABLE "Room" (
+	"roomID"	INTEGER,
+	"description"	TEXT,
+	"bathroom"	INTEGER,
+	"maxPeople"	INTEGER,
+	"price"	INTEGER,
+	PRIMARY KEY("roomID")
+);
+
+CREATE TABLE "sqlite_sequence" (
+	"name"	TEXT,
+	"seq"	TEXT
+);
