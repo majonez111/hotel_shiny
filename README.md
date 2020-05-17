@@ -1,5 +1,5 @@
 # hotel_shiny
-Booking management module (using Shiny) XD
+Booking management module (using Shiny) XD XD
 
 To use the SMTP module, you need to provide a login and password to the mailjet server.
 
