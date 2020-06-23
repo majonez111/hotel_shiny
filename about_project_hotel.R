@@ -1,6 +1,6 @@
 #UI
 about_project_hotel <- function(id, label = "about_project_hotel1") {
-
+ #
   ns <- NS(id)
   
   mainPanel(width = 12,
